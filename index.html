@@ -11,6 +11,8 @@ body {
     background: #f8f5f2;
     color: #3b2f2f;
 }
+
+/* Header */
 header {
     background: #3b2f2f;
     color: white;
@@ -23,6 +25,8 @@ nav a {
     text-decoration: none;
     font-weight: bold;
 }
+
+/* Hero Section */
 .hero {
     padding: 60px 20px;
     text-align: center;
@@ -32,6 +36,8 @@ nav a {
     font-size: 2.6em;
     margin-bottom: 10px;
 }
+
+/* Products Section */
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -68,6 +74,8 @@ nav a {
     border-radius: 6px;
     cursor: pointer;
 }
+
+/* Footer */
 footer {
     background: #3b2f2f;
     color: white;
@@ -75,6 +83,8 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
+/* Shopping Cart */
 #cart {
     position: fixed;
     top: 80px;
@@ -117,33 +127,33 @@ footer {
 <div id="cart">
     <h3>Shopping Cart</h3>
     <div id="cart-items"></div>
-    <p>Total: $<span id="cart-total">0</span></p>
+    <p>Total: $<span id="cart-total">0.00</span></p>
     <button onclick="checkout()" class="btn">Checkout</button>
 </div>
 
 <section id="shop" class="products">
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1542826438-5f7b3c9b5a11" alt="Chocolate Truffles">
+        <img src="https://images.unsplash.com/photo-1542826438-5f7b3c9b5a11" alt="Classic Truffle Box">
         <h3>Classic Truffle Box</h3>
-        <p>Decadent dark chocolate ganache truffles for chocolate lovers.</p>
-        <p class="price">18.00</p>
+        <p>Decadent dark chocolate ganache truffles, handcrafted for chocolate lovers.</p>
+        <p class="price">$18.00</p>
         <button class="btn" onclick="addToCart('Classic Truffle Box', 18)">Add to Cart</button>
     </div>
 
     <div class="card">
         <img src="https://images.unsplash.com/photo-1614707267537-2d7b2e21e6c1" alt="Assorted Bonbons">
         <h3>Assorted Bonbons</h3>
-        <p>Colorful artisan bonbons with unique flavors: caramel, raspberry, and hazelnut.</p>
-        <p class="price">24.00</p>
+        <p>Colorful artisan bonbons in caramel, raspberry, and hazelnut flavors.</p>
+        <p class="price">$24.00</p>
         <button class="btn" onclick="addToCart('Assorted Bonbons', 24)">Add to Cart</button>
     </div>
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c" alt="Chocolate Gift Box">
+        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c" alt="Gift Collection">
         <h3>Gift Collection</h3>
-        <p>Elegant chocolate gift box for holidays or special occasions.</p>
-        <p class="price">35.00</p>
+        <p>Elegant chocolate gift box perfect for holidays and special occasions.</p>
+        <p class="price">$35.00</p>
         <button class="btn" onclick="addToCart('Gift Collection', 35)">Add to Cart</button>
     </div>
 
