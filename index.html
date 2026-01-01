@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velvet Truffles</title>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        background: #f8f5f2;
+        color: #3b2f2f;
+    }
+
+    header {
+        background: #3b2f2f;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    nav a {
+        color: #f5e6d3;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .hero {
+        padding: 60px 20px;
+        text-align: center;
+        background: #f0e6dc;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+
+    .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        padding: 40px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 20px;
+        text-align: center;
+    }
+
+    .card img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .card h3 {
+        margin: 15px 0 5px;
+    }
+
+    .price {
+        font-weight: bold;
+        color: #7a3e2e;
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 18px;
+        background: #7a3e2e;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+    }
+
+    footer {
+        background: #3b2f2f;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Velvet Truffles</h1>
+    <p>Handcrafted Truffles & Bon Bons</p>
+    <nav>
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Luxury Chocolate, Made to Melt</h1>
+    <p>Small-batch truffles and bonbons made with premium ingredients.</p>
+</section>
+
+<section id="shop" class="products">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52" alt="Chocolate Truffles">
+        <h3>Classic Truffle Box</h3>
+        <p>Rich dark chocolate ganache</p>
+        <p class="price">$18.00</p>
+        <a class="btn" href="#">Add to Cart</a>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1603052875302-d376b7c0638a" alt="Bonbons">
+        <h3>Assorted Bon Bons</h3>
+        <p>Hand-painted artisan chocolates</p>
+        <p class="price">$24.00</p>
+        <a class="btn" href="#">Add to Cart</a>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1585238342028-4bbc2d30a2d5" alt="Chocolate Box">
+        <h3>Gift Collection</h3>
+        <p>Perfect for special occasions</p>
+        <p class="price">$35.00</p>
+        <a class="btn" href="#">Add to Cart</a>
+    </div>
+</section>
+
+<section id="about" class="hero">
+    <h2>About Us</h2>
+    <p>We craft luxury chocolates using ethically sourced cocoa and time-honored techniques to create unforgettable flavors.</p>
+</section>
+
+<section id="contact" class="hero">
+    <h2>Contact</h2>
+    <p>Email: hello@velvettruffles.com</p>
+    <p>Instagram: @velvettruffles</p>
+</section>
+
+<footer>
+    <p>© 2026 Velvet Truffles. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
