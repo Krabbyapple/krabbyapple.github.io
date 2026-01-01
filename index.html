@@ -11,8 +11,6 @@ body {
     background: #f8f5f2;
     color: #3b2f2f;
 }
-
-/* Header */
 header {
     background: #3b2f2f;
     color: white;
@@ -25,19 +23,12 @@ nav a {
     text-decoration: none;
     font-weight: bold;
 }
-
-/* Hero Section */
 .hero {
     padding: 60px 20px;
     text-align: center;
     background: #f0e6dc;
 }
-.hero h1 {
-    font-size: 2.6em;
-    margin-bottom: 10px;
-}
-
-/* Products Section */
+.hero h1 { font-size: 2.6em; margin-bottom: 10px; }
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -51,19 +42,9 @@ nav a {
     padding: 20px;
     text-align: center;
 }
-.card img {
-    width: 100%;
-    border-radius: 10px;
-    height: 220px;
-    object-fit: cover;
-}
-.card h3 {
-    margin: 15px 0 5px;
-}
-.price {
-    font-weight: bold;
-    color: #7a3e2e;
-}
+.card img { width: 100%; border-radius: 10px; height: 220px; object-fit: cover; }
+.card h3 { margin: 15px 0 5px; }
+.price { font-weight: bold; color: #7a3e2e; }
 .btn {
     display: inline-block;
     margin-top: 12px;
@@ -74,8 +55,6 @@ nav a {
     border-radius: 6px;
     cursor: pointer;
 }
-
-/* Footer */
 footer {
     background: #3b2f2f;
     color: white;
@@ -83,8 +62,6 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
-
-/* Shopping Cart */
 #cart {
     position: fixed;
     top: 80px;
@@ -96,14 +73,8 @@ footer {
     width: 220px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-#cart h3 {
-    margin-top: 0;
-}
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-}
+#cart h3 { margin-top: 0; }
+.cart-item { display: flex; justify-content: space-between; margin-bottom: 5px; }
 </style>
 </head>
 <body>
@@ -128,13 +99,13 @@ footer {
     <h3>Shopping Cart</h3>
     <div id="cart-items"></div>
     <p>Total: $<span id="cart-total">0.00</span></p>
-    <button onclick="checkout()" class="btn">Checkout</button>
+    <button id="checkout-btn" class="btn">Checkout with Card</button>
 </div>
 
 <section id="shop" class="products">
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1614707267537-2d7b2e21e6c1" alt="Assorted Bonbons">
+        <img src="https://images.unsplash.com/photo-1599785209707-48c5a5f5f4b5" alt="Assorted Bonbons">
         <h3>Assorted Bonbons</h3>
         <p>Colorful artisan bonbons in caramel, raspberry, and hazelnut flavors.</p>
         <p class="price">$24.00</p>
@@ -145,8 +116,8 @@ footer {
         <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c" alt="Gift Collection">
         <h3>Gift Collection</h3>
         <p>Elegant chocolate gift box perfect for holidays and special occasions.</p>
-        <p class="price">$35.00</p>
-        <button class="btn" onclick="addToCart('Gift Collection', 35)">Add to Cart</button>
+        <p class="price">$32.00</p>
+        <button class="btn" onclick="addToCart('Gift Collection', 32)">Add to Cart</button>
     </div>
 
 </section>
@@ -166,6 +137,8 @@ footer {
     <p>© 2026 Velvet Truffles. All rights reserved.</p>
 </footer>
 
+<!-- Stripe JS -->
+<script src="https://js.stripe.com/v3/"></script>
 <script>
 // Shopping Cart
 let cart = [];
@@ -197,15 +170,34 @@ function removeItem(index) {
     updateCart();
 }
 
-function checkout() {
+// Stripe Checkout
+document.getElementById('checkout-btn').addEventListener('click', async () => {
     if(cart.length === 0) {
         alert('Your cart is empty!');
         return;
     }
-    alert('Thank you for your order! Total: $' + document.getElementById('cart-total').textContent);
+
+    // Replace with your own Stripe publishable key
+    const stripe = Stripe('YOUR_STRIPE_PUBLISHABLE_KEY');
+
+    // Create line items from cart
+    const lineItems = cart.map(item => ({
+        price_data: {
+            currency: 'usd',
+            product_data: { name: item.name },
+            unit_amount: item.price * 100, // cents
+        },
+        quantity: 1
+    }));
+
+    // Normally you would create a Checkout Session via server
+    // For demo, we'll alert instead
+    alert('Stripe integration ready. You need a backend to process payments.');
+
+    // Clear cart
     cart = [];
     updateCart();
-}
+});
 </script>
 
 </body>
